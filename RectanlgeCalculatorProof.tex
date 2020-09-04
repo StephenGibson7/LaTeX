@@ -1,0 +1,61 @@
+\documentclass[letterpaper, 10pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{Rectangle Calculator Proof}
+\author{Stephen Gibson}
+\date{September 2nd 2020}
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+7 & 8 & 9\\
+\hline
+4 & 5 & 6\\
+\hline
+1 & 2 & 3\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{20pt}
+
+Theorem: Any sequence of four buttons pressed on a calculator, so long as they form a rectangle, will be divisible by 11.
+
+\vspace{30pt}
+
+Proof: Let $n$ be your integer and let $a, b, c, d$ be the four distinct integers $\in [1, 9]$ such that:
+
+\begin{equation*}
+n = a \cdot 10^3 + b \cdot 10^2 + c \cdot 10 + d
+\end{equation*}
+
+Let $b - a = s$ and since the integers are typed in a rectangle, it follows that $d - c = -s$. Substituting for $b$ and $d$ we get:
+
+\begin{equation*}
+n = a \cdot 10^3 + (a + s)10^2 + c \cdot 10 + (c - s)
+\end{equation*}
+
+Distributing we get:
+\begin{align*}
+n &= 1000a + 100a + 100s + 10c + c - s\\
+&= 1100a + 11c + 99s
+\end{align*}
+
+Finally, factoring out an 11 from each term gives us:
+
+\begin{equation*}
+n = 11(100a + c + 9s)
+\end{equation*}
+
+Letting $m = 100a + c + 9s$
+
+\begin{equation*}
+n = 11 \cdot m
+\end{equation*}
+
+$\therefore 11|n$ $\blacksquare$
+
+\end{document}

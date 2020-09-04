@@ -1,0 +1,103 @@
+\documentclass[letterpaper, 11pt]{article}
+\usepackage{amsmath}
+\title{Does First Move Matter?}
+\author{Stephen Gibson}
+\date{June 10th 2020}
+\begin{document}
+
+\maketitle
+
+On February 26th, I downloaded the Chess.com mobile app on my phone and have been playing games since. For my final project I want to test a well-known chess theory that whomever has the white pieces starts off with an advantage because they move first. Each game I’m randomly assigned a color and an opponent so my sample is random. To test this theory, I will perform a Chi-square test with null hypothesis being that the color I start with is independent from the outcome of the game, and then my alternative hypothesis is that the color I start with is not independent on the outcome of the game. Currently, my results for Blitz chess games, a game that takes between 5 and 10 minutes, are as follows:
+
+\begin{center}
+
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ & Wins & Losses & Draws & Total\\
+ \hline
+ White & 135 & 110 & 13 & 258\\
+ \hline
+ Black & 117 & 129 & 10 & 256\\
+ \hline
+ Total & 252 & 239 & 23 & 514\\
+ \hline
+\end{tabular}
+
+\end{center}
+
+From this we can compute the table of expected values:
+
+\begin{center}
+
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ & Wins & Losses & Draws & Total\\
+ \hline
+ White & 126.49 & 119.965 & 11.545 & 258\\
+ \hline
+ Black & 125.51 & 119.035 & 11.455 & 256\\
+ \hline
+ Total & 252 & 239 & 23 & 514\\
+ \hline
+\end{tabular}
+
+\end{center}
+
+So, we get:
+
+\begin{align*}
+\chi^2 & = \frac{(135 - 126.49)^2}{126.49} + \frac{(110 - 119.965)^2}{119.965} + \frac{(13 - 11.545)^2}{11.545} +\\
+& \hspace{0.5cm} \frac{(117 - 125.51)^2}{125.51} + \frac{(129 - 119.035)^2}{119.035} + \frac{(10 - 11.455)^2}{11.455}\\
+ & = 3.18
+\end{align*}
+
+Using a 5\% significance level, and 2 degrees of freedom, this gives a p-value of 0.204. Since this is greater than 0.05, we say that the test statistic is not significant and therefore we fail to reject the null hypothesis, meaning that the data suggests that the outcomes of my games is independent of what color I start with. This surprised me since the theory that white has an advantage because they go first is pretty well known. So, I wanted to test if this is the case for a high-level player. Grandmaster Hikaru Nakamura is the \#1 Blitz chess player on Chess.com, his game results are as follows:
+
+\begin{center}
+
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ & Wins & Losses & Draws & Total\\
+ \hline
+ White & 8,042 & 1,313 & 921 & 10,276\\
+ \hline
+ Black & 7,642 & 1,583 & 1,079 & 10,304\\
+ \hline
+ Total & 15,684 & 2,896 & 2,000 & 20,580\\
+ \hline
+\end{tabular}
+
+\end{center}
+
+Using this, we compute the table of expected values:
+
+\begin{center}
+
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ & Wins & Losses & Draws & Total\\
+ \hline
+ White & 7,831.33 & 1,446.03 & 998.64 & 10,276\\
+ \hline
+ Black & 7,852.67 & 1,449.97 & 1,001.36 & 10,304\\
+ \hline
+ Total & 15,684 & 2,896 & 2,000 & 20,580\\
+ \hline
+\end{tabular}
+
+\end{center}
+
+So, we get:
+
+\begin{align*}
+\chi^2 & = \frac{(8,042 - 7,831.33)^2}{7,831.33} + \frac{(1,313 - 1,446.03)^2}{1,446.03} + \frac{(921 - 998.64)^2}{998.64} +\\
+& \hspace{0.5cm} \frac{(7,642 - 7,852.67)^2}{7,852.67} + \frac{(1,583 - 1,449.97)^2}{1,449.97} + \frac{(1,079 - 1,001.36)^2}{1,001.36}\\
+ & = 47.8181
+\end{align*}
+
+Using a 5\% significance level, and 2 degrees of freedom gives a p-value less than 0.00001. Since this is less than 0.05, we say the test statistic is significant and that we reject the null hypothesis. So, the data suggests that the outcome of his games does depend on the color of his pieces.
+
+These results show that a high-level player can use the advantage of getting the white pieces significantly better than I can. The level of the player is also a factor for whether the advantage of getting the white pieces affects the outcome of the game.
+
+
+\end{document}
